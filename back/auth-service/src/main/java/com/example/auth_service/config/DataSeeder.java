@@ -22,7 +22,6 @@ public class DataSeeder implements CommandLineRunner {
       }
 
       @Override
-
       public void run(String... args) throws Exception {
             if (userRepository.findByUsername("admin").isEmpty()) {
                   User user = new User();
