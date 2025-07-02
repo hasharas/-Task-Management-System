@@ -28,7 +28,7 @@ public class DataSeeder implements CommandLineRunner {
                   user.setUsername("admin");
                   user.setPassword(passwordEncoder.encode("password"));
                   userRepository.save(user);
-                  System.out.println("Seeded admin with password 'password'");
+                  System.out.println(" Seeded admin user with password 'password'");
             }
 
       }

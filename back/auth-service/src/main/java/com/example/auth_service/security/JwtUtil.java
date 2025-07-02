@@ -2,6 +2,9 @@ package com.example.auth_service.security;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
@@ -10,8 +13,18 @@ import java.util.Date;
 //Jwt utility class hare validate token ,genarate token and extrac user name token
 @Component
 public class JwtUtil {
-      private final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+
+      @Value("${jwt.secret}")
+      private String secretKey;
+
+      private Key key;
       private final long exprirationMs = 3600000; // 1 h
+
+      // initializing key using secret key
+      @PostConstruct
+      public void init() {
+            this.key = Keys.hmacShaKeyFor(secretKey.getBytes());
+      }
 
       public String generateToken(String username) {
             return Jwts.builder()
