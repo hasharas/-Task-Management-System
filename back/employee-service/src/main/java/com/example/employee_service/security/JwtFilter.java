@@ -10,18 +10,18 @@ import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+// import org.springframework.beans.factory.annotation.Value;
+// import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.security.Key;
 
-@Component
+// @Component
 public class JwtFilter implements Filter {
 
       private final Key key;
 
-      public JwtFilter(@Value("${jwt.secret}") String secret) {
+      public JwtFilter(String secret) {
             this.key = Keys.hmacShaKeyFor(secret.getBytes());
       }
 
