@@ -1,8 +1,10 @@
 package com.example.task_service.util;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+@Component
 public class EmployeeValidator {
 
       @Value("${employee.service.url}")
