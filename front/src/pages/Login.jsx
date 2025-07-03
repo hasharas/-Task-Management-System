@@ -24,11 +24,14 @@ const Login = () => {
 
       return (
             <div className="min-h-screen flex items-center justify-center bg-gray-200  rounded-md">
+                  {/* <div className="text-3xl font-bold mb-6 text-blue-600 font-mono">
+                        Task Management
+                  </div> */}
                   <form
                         onSubmit={handleLogin}
                         className="bg-white p-8 rounded-md shadow-md w-full max-w-md  border border-blue-300"
                   >
-                        <h2 className="text-2xl font-semibold font-mono text-center mb-4">Login</h2>
+                        <h2 className="text-2xl font-semibold  text-center mb-4">Login</h2>
                         {/* err msg pring hare  */}
                         {errorMsg && <p className="text-red-600 text-sm mb-3">{errorMsg}</p>}
                         <input
