@@ -11,13 +11,14 @@ function Dashboard() {
   const [editTaskData, setEditTaskData] = useState(null);
 
   const fetchTasks = async () => {
-    try {
-      const data = await taskService.fetchTasks();
-      setTasks(data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  try {
+    const data = await taskService.fetchTasks();
+    setTasks(Array.isArray(data) ? data : []);
+  } catch (err) {
+    console.error("Failed to fetch tasks", err);
+    setTasks([]); 
+  }
+};
 
   const handleLogout = () => {
     logout();
