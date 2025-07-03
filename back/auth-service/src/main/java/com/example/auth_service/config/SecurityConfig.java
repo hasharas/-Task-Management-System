@@ -13,7 +13,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig {
-      // public access to /auth/**
+      // public access to 
       @Bean
       public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
             http

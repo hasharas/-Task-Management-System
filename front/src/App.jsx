@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import './App.css'
 import Login from './auth/Login';
 import { isLoggedIn } from './auth/useAuth';
+import Dashboard from './pages/Dashboard';
 
 
 const PrivateRoute = ({ children }) => {
