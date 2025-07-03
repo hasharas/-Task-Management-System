@@ -22,12 +22,12 @@ const Login = () => {
       };
 
       return (
-            <div className="min-h-screen flex items-center justify-center bg-gray-100">
+            <div className="min-h-screen flex items-center justify-center bg-gray-200  rounded-lg">
                   <form
                         onSubmit={handleLogin}
-                        className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm"
+                        className="bg-white p-8 rounded-lg shadow-md w-full max-w-md  border border-blue-300"
                   >
-                        <h2 className="text-2xl font-semibold text-center mb-4">Login</h2>
+                        <h2 className="text-2xl font-semibold font-mono text-center mb-4">Login</h2>
                         {/* err msg pring hare  */}
                         {errorMsg && <p className="text-red-600 text-sm mb-3">{errorMsg}</p>}
                         <input
@@ -47,12 +47,14 @@ const Login = () => {
                               required
                         />
 
-                        <button
-                              type="submit"
-                              className="bg-blue-500 hover:bg-blue-600 text-white w-full py-2 rounded"
-                        >
-                              Log In
-                        </button>
+                        <div className='mt-4'>
+                              <button
+                                    type="submit"
+                                    className="bg-blue-500 hover:bg-blue-600  text-white w-full py-2 rounded"
+                              >
+                                    Log In
+                              </button>
+                        </div>
 
                   </form>
             </div>

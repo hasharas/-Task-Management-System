@@ -120,13 +120,15 @@ const TaskForm = ({ fetchTasks, editTaskData, setEditTaskData }) => {
         ))}
       </select>
 
-      <button
-        type="submit"
-        className="bg-blue-500 text-white px-4 py-2 rounded w-full"
-      >
-        {editTaskData ? "Update Task" : "Add Task"}
+      <div className="mt-6">
+        <button
+          type="submit"
+          className="bg-blue-500 text-white px-4 py-2 rounded w-full"
+        >
+          {editTaskData ? "Update Task" : "Add Task"}
 
-      </button>
+        </button>
+      </div>
     </form>
   );
 };

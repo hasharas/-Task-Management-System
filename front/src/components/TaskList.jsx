@@ -18,12 +18,12 @@ const TaskList = ({ tasks, fetchTasks, setEditTaskData, employees }) => {
   };
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <h2 className="text-lg font-semibold mb-2">All Tasks</h2>
+    <div className="bg-white p-4 rounded border border-blue-500 shadow">
+      <h2 className="text-xl font-bold mb-2 ">All Tasks</h2>
 
-      <table className="w-full border border-blue-500 text-sm">
+      <table className="w-full  text-sm">
         <thead>
-          <tr className="bg-gray-200 border-blue-500">
+          <tr className="bg-gray-200 border border-blue-500">
             <th className="p-2 border">Title</th>
             <th className="p-2 border">Status</th>
             <th className="p-2 border">Due Date</th>
@@ -41,13 +41,13 @@ const TaskList = ({ tasks, fetchTasks, setEditTaskData, employees }) => {
               <td className="p-2 border space-x-2">
                 <button
                   onClick={() => setEditTaskData(task)}
-                  className="text-blue-600"
+                  className="text-blue-600 border-blue-500 border px-2 py-1 rounded hover:bg-blue-100"
                 >
                   Edit
                 </button>
                 <button
                   onClick={() => handleDelete(task.id)}
-                  className="text-red-600"
+                  className="text-red-600 border-red-500 border px-2 py-1 rounded hover:bg-red-100"
                 >
                   Delete
                 </button>
