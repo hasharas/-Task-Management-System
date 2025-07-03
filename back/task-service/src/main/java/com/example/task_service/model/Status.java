@@ -1,5 +1,7 @@
 package com.example.task_service.model;
 
-public class Status {
-
+public enum Status {
+      TODO,
+      IN_PROGRESS,
+      DONE
 }
