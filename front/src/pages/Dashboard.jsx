@@ -4,21 +4,31 @@ import { useEffect, useState } from "react";
 import taskService from "../services/TaskService";
 import TaskList from "../components/TaskList";
 import TaskForm from "../components/TaskForm";
+import employeeService from "../services/EmployeeService";
 
 function Dashboard() {
   const navigate = useNavigate();
   const [tasks, setTasks] = useState([]);
   const [editTaskData, setEditTaskData] = useState(null);
+  const [employees, setEmployees] = useState([]);
 
   const fetchTasks = async () => {
-  try {
-    const data = await taskService.fetchTasks();
-    setTasks(Array.isArray(data) ? data : []);
-  } catch (err) {
-    console.error("Failed to fetch tasks", err);
-    setTasks([]); 
-  }
-};
+    try {
+      const data = await taskService.fetchTasks();
+      setTasks(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const fetchEmployees = async () => {
+    try {
+      const data = await employeeService.fetchEmployees();
+      setEmployees(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const handleLogout = () => {
     logout();
@@ -27,6 +37,7 @@ function Dashboard() {
 
   useEffect(() => {
     fetchTasks();
+    fetchEmployees();
   }, []);
 
   return (
@@ -49,6 +60,7 @@ function Dashboard() {
 
       <TaskList
         tasks={tasks}
+        employees={employees}
         fetchTasks={fetchTasks}
         setEditTaskData={setEditTaskData}
       />

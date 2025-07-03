@@ -33,6 +33,7 @@ const TaskForm = ({ fetchTasks, editTaskData, setEditTaskData }) => {
   };
 
   const handleSubmit = async (e) => {
+
     e.preventDefault();
     try {
       if (editTaskData) {
@@ -41,6 +42,7 @@ const TaskForm = ({ fetchTasks, editTaskData, setEditTaskData }) => {
       } else {
         await taskService.createTask(formData);
       }
+
       setFormData({
         title: "",
         description: "",
@@ -48,7 +50,10 @@ const TaskForm = ({ fetchTasks, editTaskData, setEditTaskData }) => {
         dueDate: "",
         employeeId: "",
       });
+
+      alert("Task saved successfully");
       fetchTasks();
+
     } catch (error) {
       alert("Error while saving task");
     }
@@ -56,6 +61,7 @@ const TaskForm = ({ fetchTasks, editTaskData, setEditTaskData }) => {
 
   return (
     <form onSubmit={handleSubmit} className="mb-6 bg-white p-4 rounded shadow">
+
       <h2 className="text-lg font-semibold mb-2">
         {editTaskData ? "Edit Task" : "Create Task"}
       </h2>
@@ -119,6 +125,7 @@ const TaskForm = ({ fetchTasks, editTaskData, setEditTaskData }) => {
         className="bg-blue-500 text-white px-4 py-2 rounded w-full"
       >
         {editTaskData ? "Update Task" : "Add Task"}
+
       </button>
     </form>
   );
