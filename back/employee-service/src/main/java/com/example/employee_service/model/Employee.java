@@ -16,6 +16,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
+// Employee model
 public class Employee {
 
       @Id

@@ -1,6 +1,7 @@
 import { URL } from "../configs/const";
 import HttpService from "./HttpService";
 
+// EmployeeService
 class EmployeeService extends HttpService {
       async fetchEmployees() {
             return this.sendRequest({

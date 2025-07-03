@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 @Configuration
 public class CorsConfig {
-
+      // cors configuration for the auth service
       @Bean
       public CorsFilter corsFilter() {
             CorsConfiguration config = new CorsConfiguration();

@@ -7,11 +7,13 @@ import TaskForm from "../components/TaskForm";
 import employeeService from "../services/EmployeeService";
 
 function Dashboard() {
+
   const navigate = useNavigate();
   const [tasks, setTasks] = useState([]);
   const [editTaskData, setEditTaskData] = useState(null);
   const [employees, setEmployees] = useState([]);
 
+  //fetch tasks
   const fetchTasks = async () => {
     try {
       const data = await taskService.fetchTasks();
@@ -21,6 +23,7 @@ function Dashboard() {
     }
   };
 
+  //fetch employee
   const fetchEmployees = async () => {
     try {
       const data = await employeeService.fetchEmployees();
@@ -36,6 +39,7 @@ function Dashboard() {
     navigate("/");
   };
 
+  //task and employee data fetch on component mount
   useEffect(() => {
     fetchTasks();
     fetchEmployees();

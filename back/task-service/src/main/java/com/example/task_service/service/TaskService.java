@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.task_service.model.Task;
 import com.example.task_service.repository.TaskRepository;
 
+// manage task data (logic)
 @Service
 public class TaskService {
 

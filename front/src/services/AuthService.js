@@ -1,6 +1,7 @@
 import { URL } from "../configs/const";
 import HttpService from "./HttpService";
 
+// AuthService
 class AuthService extends HttpService {
       async login(payload) {
             return this.sendRequest({

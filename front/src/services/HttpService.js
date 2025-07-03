@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+//http service to handle API requests
 class HttpService {
       constructor() {
             this.service = axios.create();

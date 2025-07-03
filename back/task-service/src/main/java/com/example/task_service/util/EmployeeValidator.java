@@ -5,6 +5,7 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+//validates if an employee exists by checking the employee service
 @Component
 public class EmployeeValidator {
 

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.example.employee_service.model.Employee;
 import com.example.employee_service.repository.EmployeeRepository;
 
+//manage employee data (logic)
 @Service
 public class EmployeeService {
 

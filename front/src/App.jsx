@@ -5,7 +5,7 @@ import Login from './pages/Login';
 import { isLoggedIn } from './auth/useAuth';
 import Dashboard from './pages/Dashboard';
 
-
+//protect routes
 const PrivateRoute = ({ children }) => {
   return isLoggedIn() ? children : <Navigate to="/" />;
 };

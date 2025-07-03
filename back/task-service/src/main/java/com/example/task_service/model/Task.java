@@ -11,6 +11,9 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
+// Task model
+
 public class Task {
 
       @Id

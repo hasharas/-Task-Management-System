@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
 
+// jwtfilter to validate JWT tokens
 @Component
 public class JwtFilter implements Filter {
 
