@@ -1,7 +1,14 @@
 import { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import './App.css'
 import Login from './auth/Login';
+import { isLoggedIn } from './auth/useAuth';
+
+
+const PrivateRoute = ({ children }) => {
+  return isLoggedIn() ? children : <Navigate to="/" />;
+};
+
 
 function App() {
 
@@ -10,7 +17,14 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Login />} />
-
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </Router>
     </>
