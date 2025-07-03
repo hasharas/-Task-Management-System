@@ -1,16 +1,18 @@
 import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css'
+import Login from './auth/Login';
 
 function App() {
 
   return (
     <>
-      <h1 className="text-3xl ">
-        Hello world!
-      </h1>
-      <button className='text-center '>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login />} />
 
-      </button>
+        </Routes>
+      </Router>
     </>
   )
 }
