@@ -1,0 +1,63 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: myproject-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./postgres-init:/docker-entrypoint-initdb.d
+
+  auth-service:
+    build:
+      context: ./back/auth-service
+    image: myproject-auth-service:latest
+    container_name: myproject-auth-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/auth_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 1234
+      JWT_SECRET: mysecretkeymysecretkeymysecretkey
+
+  employee-service:
+    build:
+      context: ./back/employee-service
+    image: myproject-employee-service:latest
+    container_name: myproject-employee-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/employee_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 1234
+      JWT_SECRET: mysecretkeymysecretkeymysecretkey
+
+  task-service:
+    build:
+      context: ./back/task-service
+    image: myproject-task-service:latest
+    container_name: myproject-task-service
+    ports:
+      - "8083:8083"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/task_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 1234
+      JWT_SECRET: mysecretkeymysecretkeymysecretkey
+      EMPLOYEE_SERVICE_URL: http://employee-service:8082/employees
+
+volumes:
+  pgdata:
