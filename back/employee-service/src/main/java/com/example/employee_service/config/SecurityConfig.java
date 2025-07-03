@@ -19,7 +19,7 @@ public class SecurityConfig {
       public FilterRegistrationBean<JwtFilter> jwtFilter(JwtFilter filter) {
             FilterRegistrationBean<JwtFilter> registrationBean = new FilterRegistrationBean<>();
             registrationBean.setFilter(filter);
-            registrationBean.addUrlPatterns("/*");
+            registrationBean.addUrlPatterns("/employees", "/employees/*");
             return registrationBean;
       }
 }
