@@ -18,26 +18,26 @@ const TaskList = ({ tasks, fetchTasks, setEditTaskData, employees }) => {
   };
 
   return (
-    <div className="bg-white p-4 rounded border border-blue-500 shadow">
-      <h2 className="text-xl font-bold mb-2 ">All Tasks</h2>
+    <div className="bg-white p-6 rounded-md border border-blue-300 shadow">
+      <h2 className="text-xl font-bold mb-3 ">All Tasks</h2>
 
       <table className="w-full  text-sm">
         <thead>
-          <tr className="bg-gray-200 border border-blue-500">
-            <th className="p-2 border">Title</th>
-            <th className="p-2 border">Status</th>
-            <th className="p-2 border">Due Date</th>
-            <th className="p-2 border">Assigned Employee</th>
-            <th className="p-2 border">Actions</th>
+          <tr className="bg-gray-200 border ">
+            <th className="p-2 border hover:border-blue-500">Title</th>
+            <th className="p-2 border hover:border-blue-500">Status</th>
+            <th className="p-2 border hover:border-blue-500">Due Date</th>
+            <th className="p-2 border hover:border-blue-500">Assigned Employee</th>
+            <th className="p-2 border hover:border-blue-500">Actions</th>
           </tr>
         </thead>
         <tbody>
           {tasks.map((task) => (
             <tr key={task.id}>
-              <td className="p-2 border">{task.title}</td>
-              <td className="p-2 border">{task.status}</td>
-              <td className="p-2 border">{task.dueDate}</td>
-              <td className="p-2 border">{getEmployeeName(task.employeeId)}</td>
+              <td className="p-2 border hover:bg-slate-300">{task.title}</td>
+              <td className="p-2 border hover:bg-slate-300">{task.status}</td>
+              <td className="p-2 border hover:bg-slate-300">{task.dueDate}</td>
+              <td className="p-2 border hover:bg-slate-300">{getEmployeeName(task.employeeId)}</td>
               <td className="p-2 border space-x-2">
                 <button
                   onClick={() => setEditTaskData(task)}

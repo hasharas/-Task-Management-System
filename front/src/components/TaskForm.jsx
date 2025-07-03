@@ -60,9 +60,9 @@ const TaskForm = ({ fetchTasks, editTaskData, setEditTaskData }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-6 bg-white p-4 rounded shadow">
+    <form onSubmit={handleSubmit} className="mb-6 bg-white p-4 rounded-md border border-blue-300 shadow">
 
-      <h2 className="text-lg font-semibold mb-2">
+      <h2 className="text-xl font-semibold mb-2">
         {editTaskData ? "Edit Task" : "Create Task"}
       </h2>
 
