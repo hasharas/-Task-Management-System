@@ -36,6 +36,8 @@ task-management/
 
 ---
 
+hint : No `.env` files are used in this project. 
+
 ## 🧩 Backend Setup (2 Options)
 
 ### ✅ Option 1: Using Docker (Recommended)
