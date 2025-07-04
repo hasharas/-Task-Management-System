@@ -12,6 +12,8 @@ function Dashboard() {
   const [tasks, setTasks] = useState([]);
   const [editTaskData, setEditTaskData] = useState(null);
   const [employees, setEmployees] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [statusFilter, setStatusFilter] = useState("");
 
   //fetch tasks
   const fetchTasks = async () => {
@@ -63,11 +65,33 @@ function Dashboard() {
         setEditTaskData={setEditTaskData}
       />
 
+      <div className="mb-4 flex flex-wrap items-center gap-4">
+        <input
+          type="text"
+          placeholder="Search by title..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="border border-blue-300 px-3 py-2 rounded w-64"
+        />
+        <select
+          value={statusFilter}
+          onChange={(e) => setStatusFilter(e.target.value)}
+          className="border border-blue-300 bg-white px-6 py-2 rounded"
+        >
+          <option value="">All Statuses</option>
+          <option value="TODO">TODO</option>
+          <option value="IN_PROGRESS">IN_PROGRESS</option>
+          <option value="DONE">DONE</option>
+        </select>
+      </div>
+
       <TaskList
         tasks={tasks}
         employees={employees}
         fetchTasks={fetchTasks}
         setEditTaskData={setEditTaskData}
+        searchTerm={searchTerm}
+        statusFilter={statusFilter}
       />
     </div>
   );

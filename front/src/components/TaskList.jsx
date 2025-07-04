@@ -1,43 +1,55 @@
 import taskService from "../services/TaskService";
 
-const TaskList = ({ tasks, fetchTasks, setEditTaskData, employees }) => {
+const TaskList = ({
+  tasks,
+  fetchTasks,
+  setEditTaskData,
+  employees,
+  searchTerm,
+  statusFilter,
+}) => {
 
-  //delete function
+  // Delete task handler
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this task?")) {
       await taskService.deleteTask(id);
       fetchTasks();
     }
   };
-
-
-  //  get employee name by ID
+  //get employee name by id
   const getEmployeeName = (id) => {
     const emp = employees.find((e) => e.id === id);
     return emp ? emp.name : "Unknown";
   };
 
+  //  Filter tasks
+  const filteredTasks = tasks.filter((task) => {
+    const matchesTitle = task.title.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesStatus = statusFilter === "" || task.status === statusFilter;
+    return matchesTitle && matchesStatus;
+  });
+
   return (
     <div className="bg-white p-6 rounded-md border border-blue-300 shadow">
       <h2 className="text-xl font-bold mb-3 ">All Tasks</h2>
 
-      <table className="w-full  text-sm">
+      <table className="w-full text-sm">
         <thead>
           <tr className="bg-gray-200 border ">
-            <th className="p-2 border hover:border-blue-500">Title</th>
-            <th className="p-2 border hover:border-blue-500">Status</th>
-            <th className="p-2 border hover:border-blue-500">Due Date</th>
-            <th className="p-2 border hover:border-blue-500">Assigned Employee</th>
-            <th className="p-2 border hover:border-blue-500">Actions</th>
+            <th className="p-2 border">Title</th>
+            <th className="p-2 border">Status</th>
+            <th className="p-2 border">Due Date</th>
+            <th className="p-2 border">Assigned Employee</th>
+            <th className="p-2 border">Actions</th>
           </tr>
         </thead>
         <tbody>
-          {tasks.map((task) => (
+          {filteredTasks.map((task) => (
             <tr key={task.id}>
-              <td className="p-2 border hover:bg-slate-300">{task.title}</td>
-              <td className="p-2 border hover:bg-slate-300">{task.status}</td>
-              <td className="p-2 border hover:bg-slate-300">{task.dueDate}</td>
-              <td className="p-2 border hover:bg-slate-300">{getEmployeeName(task.employeeId)}</td>
+              <td className="p-2 border">{task.title}</td>
+              <td className="p-2 border">{task.status}</td>
+              <td className="p-2 border">{task.dueDate}</td>
+              <td className="p-2 border">{getEmployeeName(task.employeeId)}</td>
               <td className="p-2 border space-x-2">
                 <button
                   onClick={() => setEditTaskData(task)}
