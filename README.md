@@ -27,6 +27,13 @@ task-management/
 
 ## 🚀 How to Run the Project
 
+
+ Clone the repo:
+   ```bash
+   git clone https://github.com/hasharas/Task-Management-System
+   cd task-management-system
+ ```
+
 ### 🔹 Prerequisites
 
 - Docker Desktop installed and running
