@@ -34,7 +34,8 @@ task-management/
 - Java 17+
 - PostgreSQL (if not using Docker)
 
-hint : No `.env` files are used in this project. 
+- hint : No `.env` files are used in this project.
+  
 ---
 
 
