@@ -13,7 +13,7 @@ A full-stack Task Management System using:
 ## 📁 Project Folder Structure
 
 ```
-task-management/
+Task-Management-System/
 ├── back/
 │   ├── auth-service/
 │   ├── employee-service/
@@ -31,7 +31,7 @@ task-management/
  Clone the repo:
    ```bash
    git clone https://github.com/hasharas/Task-Management-System
-   cd task-management-system
+   cd Task-Management-System
  ```
 
 ### 🔹 Prerequisites
@@ -53,7 +53,7 @@ task-management/
 
 1. Open terminal and run:
    ```bash
-   cd task-management
+   cd Task-Management-System
    docker-compose up --build
    ```
 
@@ -71,21 +71,21 @@ task-management/
 
 #### 🔸 1. Auth Service
 ```bash
-cd task-management/back/auth-service
+cd Task-Management-System/back/auth-service
 .\mvnw.cmd clean install
 .\mvnw.cmd spring-boot:run
 ```
 
 #### 🔸 2. Employee Service
 ```bash
-cd task-management/back/employee-service
+cd Task-Management-System/back/employee-service
 .\mvnw.cmd clean install
 .\mvnw.cmd spring-boot:run
 ```
 
 #### 🔸 3. Task Service
 ```bash
-cd task-management/back/task-service
+cd Task-Management-System/back/task-service
 .\mvnw.cmd clean install
 .\mvnw.cmd spring-boot:run
 ```
@@ -97,7 +97,7 @@ cd task-management/back/task-service
 ## 🌐 Frontend Setup
 
 ```bash
-cd task-management/front
+cd Task-Management-System/front
 npm install
 npm run dev
 ```
